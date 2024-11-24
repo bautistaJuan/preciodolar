@@ -86,6 +86,10 @@ export default function DolarRates() {
         ))}
       </div>
       <CurrencyConverter />
+      <footer className='text-center mt-12'>
+        <p className='text-gray-500 text-sm'>Esta aplicación es posible gracias a la API de <a className='text-blue-600 border p-1' href='https://dolarapi.com/docs/'>DolarApi</a> </p>
+        <p className='text-gray-500 text-sm'>Desarrollada con <b className='text-blue-600 border p-1'>React</b>, por <a href="https://juan-bautista.vercel.app/" target='_blank' className='text-blue-600 border text-lg p-1 font-semibold'>Juan Bautista</a></p>
+      </footer>
     </div>
   )
 }
