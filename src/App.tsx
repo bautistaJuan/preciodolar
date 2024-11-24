@@ -49,6 +49,12 @@ export default function DolarRates() {
       <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">
         Cotizaciones del Dólar
       </h1>
+      <div className="relative py-3 px-4 mb-8">
+        <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 via-indigo-500/10 to-purple-500/10 rounded-lg"></div>
+        <p className="relative text-lg md:text-xl text-center font-medium bg-gradient-to-r from-blue-600 via-indigo-950-600 to-purple-600 bg-clip-text text-transparent">
+          Consulta las cotizaciones del dólar en tiempo real y realiza conversiones precisas entre pesos y dólares, todo desde esta  página web.
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {rates.map((rate) => (
           <div key={rate.casa} className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
