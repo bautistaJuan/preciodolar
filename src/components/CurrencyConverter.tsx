@@ -3,12 +3,9 @@ import { formatCurrencyCoverter } from "../utils/currency"
 import { useState, useEffect } from 'react'
 import { ArrowLeftRight } from 'lucide-react'
 import fetchRate from "../utils/fetchDolar"
-interface CurrencyConverterProps {
-    initialRate?: number
-}
 
-export default function CurrencyConverter({ initialRate = 1 }: CurrencyConverterProps) {
-    const [rate, setRate] = useState<number>(initialRate)
+export default function CurrencyConverter() {
+    const [rate, setRate] = useState<number>(1)
     const [amount, setAmount] = useState<string>("1")
     const [fromUSD, setFromUSD] = useState<boolean>(true)
     useEffect(() => {
@@ -35,11 +32,13 @@ export default function CurrencyConverter({ initialRate = 1 }: CurrencyConverter
 
 
     return (
-        <div className="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Conversor</h2>
+        <div className="bg-green-700 rounded-lg shadow-md p-6 max-w-md mx-auto">
+            {/* <button className="bg-red-500 mx-4 p-2 text-white font-bold">OFU</button>
+            <button className="bg-red-500 mx-4 p-2 text-white font-bold">OFU</button> */}
+            <h2 className="text-2xl font-bold mb-4 text-center text-white bold">Conversor</h2>
             <div className="flex flex-col space-y-4">
                 <div>
-                    <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="amount" className="block text-sm font-medium text-gray-600 mb-1">
                         Cantidad
                     </label>
                     <input
@@ -51,21 +50,21 @@ export default function CurrencyConverter({ initialRate = 1 }: CurrencyConverter
                         aria-label={`Cantidad en ${fromUSD ? 'USD' : 'ARS'}`}
                     />
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex text-white items-center justify-between">
                     <div className="text-lg font-semibold">{fromUSD ? 'USD' : 'ARS'}</div>
                     <button
                         onClick={handleSwitch}
-                        className="p-2 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors"
+                        className="p-2 bg-white rounded-full"
                         aria-label="Cambiar dirección de conversión"
                     >
-                        <ArrowLeftRight className="h-6 w-6 text-blue-600" />
+                        <ArrowLeftRight className="h-6 w-6 text-green-700" />
                     </button>
                     <div className="text-lg font-semibold">{fromUSD ? 'ARS' : 'USD'}</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center text-white text-2xl">
                     {amount !== '' && formatCurrencyCoverter(convertedAmount, fromUSD ? 'USD' : 'ARS')}
-                    <p className="text-sm text-gray-600 mt-1">
-                        Tasa de cambio: 1 USD = {formatCurrencyCoverter(rate, 'ARS')}
+                    <p className="text-sm mt-1">
+                        Comprar: 1 USD = {formatCurrencyCoverter(rate, 'ARS')}
                     </p>
                 </div>
             </div>

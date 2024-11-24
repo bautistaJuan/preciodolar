@@ -8,7 +8,7 @@ const fetchRate = async () => {
             throw new Error('Error al obtener la tasa de cambio')
         }
         const data = await response.json();
-        return data.venta;
+        return data.compra;
     } catch (err) {
         console.log(err);
     }
